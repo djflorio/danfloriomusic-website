@@ -27,6 +27,7 @@ class Music extends React.Component {
     this.frameLooper = this.frameLooper.bind(this);
     this.toggleAudio = this.toggleAudio.bind(this);
     this.timeUpdate = this.timeUpdate.bind(this);
+    this.onScrub = this.onScrub.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +38,7 @@ class Music extends React.Component {
     const context = new AudioContext();
     const analyser = context.createAnalyser();
     const canvas = document.querySelector('.music__canvas');
+    const timeline = document.querySelector('.music__player-timeline');
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#1B1B0F'
     const source = context.createMediaElementSource(this.state.currentSong);
@@ -47,7 +49,8 @@ class Music extends React.Component {
       analyser: analyser,
       canvas: canvas,
       ctx: ctx,
-      source: source
+      source: source,
+      timeline: timeline
     });
     this.frameLooper();
   }
@@ -88,6 +91,14 @@ class Music extends React.Component {
     }
   }
 
+  onScrub(e) {
+    let left = this.state.timeline.getBoundingClientRect().left;
+    let width = this.state.timeline.getBoundingClientRect().width;
+    let clickPos = e.clientX - left;
+    let percentage = clickPos / width;
+    this.state.currentSong.currentTime = this.state.duration * percentage;
+  }
+
   render() {
     return (
       <div className="music">
@@ -120,7 +131,7 @@ class Music extends React.Component {
             icon={this.state.playing ? faPause : faPlay}
             onClick={this.toggleAudio}
           />
-          <div className="music__player-timeline">
+          <div className="music__player-timeline" onClick={this.onScrub}>
             <div
               className="music__player-progress"
               style={{ width: this.state.playPercent + '%' }}
