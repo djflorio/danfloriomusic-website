@@ -12,7 +12,6 @@ class App extends React.Component {
   
   render() {
     const video = require('./misty.mp4');
-    console.log(this.context);
     return (
       <Router>
       <div className="app">
