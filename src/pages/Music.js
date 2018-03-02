@@ -96,7 +96,11 @@ class Music extends React.Component {
     let width = this.state.timeline.getBoundingClientRect().width;
     let clickPos = e.clientX - left;
     let percentage = clickPos / width;
-    this.state.currentSong.currentTime = this.state.duration * percentage;
+    let newSong = this.state.currentSong;
+    newSong.currentTime = this.state.duration * percentage;
+    this.setState({
+      currentSong: newSong
+    });
   }
 
   render() {
