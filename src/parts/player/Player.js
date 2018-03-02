@@ -26,7 +26,7 @@ const Player = ({playing, playPercent, togglePlay, onScrub}) => {
 }
 
 Player.propTypes = {
-  song: PropTypes.object.isRequired,
+  playing: PropTypes.bool.isRequired,
   playPercent: PropTypes.number.isRequired,
   togglePlay: PropTypes.func.isRequired,
   onScrub: PropTypes.func.isRequired

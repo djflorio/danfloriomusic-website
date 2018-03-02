@@ -5,7 +5,8 @@ describe('Player', () => {
 
   const defaultState = {
     currentSong: {},
-    playing: false
+    playing: false,
+    playPercent: 0
   }
 
   const audio = new Audio();
@@ -28,7 +29,8 @@ describe('Player', () => {
   it('should load song with loadSong', () => {
     expect(reducer(undefined, actions.loadSong("adaywiser/comingmyway"))).toEqual({
       currentSong: audio,
-      playing: false
+      playing: false,
+      playPercent: 0
     });
   });
 

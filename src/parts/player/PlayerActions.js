@@ -1,5 +1,6 @@
 export const TOGGLE_PLAY = "TOGGLE_PLAY";
 export const LOAD_SONG = "LOAD_SONG";
+export const UPDATE_PERCENTAGE = "UPDATE_PERCENTAGE";
 
 export const togglePlay = (audio) => {
   let playing = false;
@@ -16,11 +17,19 @@ export const togglePlay = (audio) => {
   }
 };
 
-export const loadSong = (song) => {
+export const loadSong = (song, timeUpdate) => {
   const audio = new Audio();
   audio.src = require('./audio/' + song + '.mp3');
+  audio.addEventListener("timeupdate", () => timeUpdate(audio), false);
   return {
     type: LOAD_SONG,
     song: audio
+  }
+}
+
+export const updatePercentage = (percentage) => {
+  return {
+    type: UPDATE_PERCENTAGE,
+    percentage: percentage
   }
 }
