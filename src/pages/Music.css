@@ -1,0 +1,22 @@
+.music__albums {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 30px;
+  grid-gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.music__album-img {
+  width: 100%;
+  box-shadow: 0 0 4px #333;
+}
+
+.music__canvas {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+}

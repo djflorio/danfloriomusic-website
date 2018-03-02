@@ -1,0 +1,30 @@
+.home {
+  position: absolute;
+  display: flex;
+  width: 500px;
+  height: 200px;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -250px;
+  text-align: center;
+}
+
+.home__title-container {
+  align-self: center;
+  width: 100%;
+}
+
+.home__title {
+  width: 100%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 100px;
+  line-height: 100px;
+  opacity: 0.5;
+  color: #1B1B0F;
+  margin: 0 auto;
+  padding: 40px;
+  border: solid 7px #1B1B0F;
+  box-sizing: border-box;
+}

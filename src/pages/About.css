@@ -1,0 +1,33 @@
+.about {
+  color: rgb(242, 243, 242);
+}
+
+.about__text {
+  font-family: 'Mukta Mahee', sans-serif;
+  font-size: 25px;
+  line-height: 28px;
+}
+
+.about__instrument-text {
+  font-family: 'Mukta Mahee', sans-serif;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.about__link {
+  text-decoration: none;
+  color: #a5680c;
+  transition: 0.3s;
+  -o-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+}
+
+.about__link:hover {
+  text-shadow: 0 0 4px #a5680c;
+}
+
+.about__instrument-img {
+  width: 150px;
+  margin-right: 10px;
+}
