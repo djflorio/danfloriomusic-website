@@ -3,7 +3,8 @@ import * as actions from './PlayerActions';
 const defaultState = {
   currentSong: {},
   playing: false,
-  playPercent: 0
+  playPercent: 0,
+  currentTime: 0
 }
 
 const player = (state=defaultState, action) => {
@@ -24,6 +25,12 @@ const player = (state=defaultState, action) => {
       return {
         ...state,
         playPercent: action.percentage
+      }
+    }
+    case actions.UPDATE_CURRENT_TIME: {
+      return {
+        ...state,
+        currentTime: action.time
       }
     }
     default: return state;

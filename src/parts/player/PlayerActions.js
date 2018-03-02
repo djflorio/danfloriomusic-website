@@ -1,6 +1,7 @@
 export const TOGGLE_PLAY = "TOGGLE_PLAY";
 export const LOAD_SONG = "LOAD_SONG";
 export const UPDATE_PERCENTAGE = "UPDATE_PERCENTAGE";
+export const UPDATE_CURRENT_TIME = "UPDATE_CURRENT_TIME";
 
 export const togglePlay = (audio) => {
   let playing = false;
@@ -27,9 +28,12 @@ export const loadSong = (song, timeUpdate) => {
   }
 }
 
-export const updatePercentage = (percentage) => {
-  return {
-    type: UPDATE_PERCENTAGE,
-    percentage: percentage
-  }
-}
+export const updatePercentage = (percentage) => ({
+  type: UPDATE_PERCENTAGE,
+  percentage: percentage
+});
+
+export const updateCurrentTime = (time) => ({
+  type: UPDATE_CURRENT_TIME,
+  time: time
+});

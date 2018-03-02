@@ -28,6 +28,18 @@ class PlayerContainer extends React.Component {
     this.props.updatePercentage(percentage);
   }
 
+  onScrub(e) {
+    let left = this.state.timeline.getBoundingClientRect().left;
+    let width = this.state.timeline.getBoundingClientRect().width;
+    let clickPos = e.clientX - left;
+    let percentage = clickPos / width;
+    let newSong = this.state.currentSong;
+    newSong.currentTime = this.state.duration * percentage;
+    this.setState({
+      currentSong: newSong
+    });
+  }
+
 }
 
 function mapStateToProps(store) {
