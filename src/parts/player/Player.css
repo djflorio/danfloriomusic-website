@@ -1,0 +1,33 @@
+.player {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.player__play {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.player__play:hover {
+  color: #ccc;
+}
+
+.player__timeline {
+  position: absolute;
+  left: 50px;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  background-color: white;
+}
+
+.player__progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #bbb;
+}

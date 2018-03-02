@@ -2,19 +2,14 @@ import React from 'react';
 //import { songs } from './songs';
 import './Music.css';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faPlay from '@fortawesome/fontawesome-free-solid/faPlay';
-import faPause from '@fortawesome/fontawesome-free-solid/faPause';
+import PlayerContainer from '../parts/player/PlayerContainer';
 
 class Music extends React.Component {
 
   constructor(props) {
     super(props);
-    const audio = new Audio();
-    audio.src = require('./audio/adaywiser/comingmyway.mp3');
-    audio.controls = true;
-    audio.autoplay = false;
-    this.state = {
+
+    /*this.state = {
       currentSong: audio,
       context: null,
       analyser: null,
@@ -22,7 +17,7 @@ class Music extends React.Component {
       ctx: null,
       source: null,
       playing: false
-    }
+    }*/
 
     this.frameLooper = this.frameLooper.bind(this);
     this.toggleAudio = this.toggleAudio.bind(this);
@@ -31,7 +26,7 @@ class Music extends React.Component {
   }
 
   componentDidMount() {
-    this.state.currentSong.addEventListener("canplaythrough", () => {
+    /*this.state.currentSong.addEventListener("canplaythrough", () => {
       this.setState({ duration: this.state.currentSong.duration });
     }, false);
     this.state.currentSong.addEventListener("timeupdate", this.timeUpdate, false);
@@ -52,7 +47,7 @@ class Music extends React.Component {
       source: source,
       timeline: timeline
     });
-    this.frameLooper();
+    this.frameLooper();*/
   }
 
   frameLooper() {
@@ -129,20 +124,7 @@ class Music extends React.Component {
             />
           </div>
         </div>
-        <div className="music__player">
-          <FontAwesomeIcon
-            className="music__player-play"
-            icon={this.state.playing ? faPause : faPlay}
-            onClick={this.toggleAudio}
-          />
-          <div className="music__player-timeline" onClick={this.onScrub}>
-            <div
-              className="music__player-progress"
-              style={{ width: this.state.playPercent + '%' }}
-            >
-            </div>
-          </div>
-        </div>
+        <PlayerContainer />
         <canvas className="music__canvas"></canvas>
       </div>
     );
