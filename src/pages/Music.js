@@ -101,7 +101,7 @@ class Music extends React.Component {
             />
           </div>
         </div>
-        <PlayerContainer />
+        
         <canvas className="music__canvas"></canvas>
       </div>
     );
