@@ -1,0 +1,13 @@
+.library {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 30px;
+  grid-gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.library__album-img {
+  width: 100%;
+  box-shadow: 0 0 4px #333;
+}
