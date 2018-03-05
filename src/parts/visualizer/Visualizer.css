@@ -1,0 +1,9 @@
+.visualizer {
+  position: absolute;
+  display: inline-block;
+  bottom: 58px;
+  z-index: -1;
+  opacity: 0.35;
+  width: 100%;
+  height: 300px;
+}

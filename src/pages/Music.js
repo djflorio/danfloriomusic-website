@@ -2,7 +2,6 @@ import React from 'react';
 import './Music.css';
 import { connect } from 'react-redux';
 import { loadSong, updatePercentage } from '../parts/player/PlayerActions';
-import PlayerContainer from '../parts/player/PlayerContainer';
 
 class Music extends React.Component {
 
@@ -27,6 +26,7 @@ class Music extends React.Component {
       this.setState({ duration: this.state.currentSong.duration });
     }, false);
     this.state.currentSong.addEventListener("timeupdate", this.timeUpdate, false);
+
     const context = new AudioContext();
     const analyser = context.createAnalyser();
     const canvas = document.querySelector('.music__canvas');

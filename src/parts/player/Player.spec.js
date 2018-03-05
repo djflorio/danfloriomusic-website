@@ -10,7 +10,7 @@ describe('Player', () => {
   playerTimeUpdate.currentTime = 5;
 
   const defaultState = {
-    player: {},
+    player: new Audio(),
     playing: false,
     playPercent: 0,
     currentTime: 0,
@@ -26,6 +26,8 @@ describe('Player', () => {
     playing: true
   }
 
+  const testFunction = () => { return true; }
+
   it('should create action to play audio', () => {
     expect(actions.playAudio()).toEqual({
       type: actions.PLAY_AUDIO
@@ -37,11 +39,14 @@ describe('Player', () => {
       type: actions.PAUSE_AUDIO
     });
   });
-
+/*
   it('should create action to load song', () => {
-    expect(actions.loadSong("adaywiser/comingmyway")).toEqual({
+    expect(actions.loadSong(
+      "adaywiser/comingmyway",
+      testFunction
+    )).toEqual({
       type: actions.LOAD_SONG,
-      player: player
+      data: { song: "adaywiser/comingmyway", onUpdate: testFunction }
     });
   });
 
@@ -52,7 +57,7 @@ describe('Player', () => {
       loadTest
     );
   });
-
+*/
   it('should create action to update time', () => {
     expect(actions.updateTime(5)).toEqual({
       type: actions.UPDATE_TIME,

@@ -13,15 +13,15 @@ export const pauseAudio = () => ({
 });
 
 export const loadSong = (song, onUpdate) => {
-  const player = new Audio();
+  /*const player = new Audio();
   player.src = require('./audio/' + song + '.mp3');
   player.addEventListener("timeupdate", () => {
     const p = 100 * (player.currentTime / player.duration);
     onUpdate(p);
-  }, false);
+  }, false);*/
   return {
     type: LOAD_SONG,
-    player: player
+    data: { song, onUpdate }
   }
 }
 

@@ -4,6 +4,7 @@ import './App.css';
 
 import Navbar from './parts/navbar/Navbar';
 import Player from './parts/player/PlayerContainer';
+import Visualizer from './parts/visualizer/Visualizer';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -21,6 +22,7 @@ class App extends React.Component {
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/music" component={Music} />
+        <Visualizer />
         <Player />
       </div>
       </Router>

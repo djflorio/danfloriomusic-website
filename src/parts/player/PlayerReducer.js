@@ -1,7 +1,7 @@
 import * as actions from './PlayerActions';
 
 const defaultState = {
-  player: {},
+  player: new Audio(),
   playing: false,
   playPercent: 0,
   currentTime: 0,
@@ -26,14 +26,15 @@ const player = (state=defaultState, action) => {
       }
     }
     case actions.LOAD_SONG: {
-      if (state.playerLoaded) {
-        state.player.pause();
-        state.player.remove();
-      }
-      action.player.play();
+      state.player.pause();
+      state.player.src = require('./audio/' + action.data.song + '.mp3');
+      state.player.addEventListener("timeupdate", () => {
+        const p = 100 * (state.player.currentTime / state.player.duration);
+        action.data.onUpdate(p);
+      }, false);
+      state.player.play();
       return {
         ...state,
-        player: action.player,
         playerOpen: true,
         playerLoaded: true,
         playing: true
