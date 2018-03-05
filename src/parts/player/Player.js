@@ -7,13 +7,13 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faPlay from '@fortawesome/fontawesome-free-solid/faPlay';
 import faPause from '@fortawesome/fontawesome-free-solid/faPause';
 
-const Player = ({playing, playerOpen, playAudio, playPercent, onScrub}) => {
+const Player = ({playing, playerOpen, playAudio, pauseAudio, playPercent, onScrub}) => {
   return (
     <div className={classnames("player", {"player--open": playerOpen})}>
       <FontAwesomeIcon
         className="player__play"
         icon={playing ? faPause : faPlay}
-        onClick={playAudio}
+        onClick={playing ? pauseAudio : playAudio}
       />
       <div className="player__timeline" onClick={onScrub}>
         <div
@@ -30,8 +30,8 @@ Player.propTypes = {
   playing: PropTypes.bool.isRequired,
   playerOpen: PropTypes.bool.isRequired,
   playAudio: PropTypes.func.isRequired,
+  pauseAudio: PropTypes.func.isRequired,
   playPercent: PropTypes.number.isRequired,
-  togglePlay: PropTypes.func.isRequired,
   onScrub: PropTypes.func.isRequired
 }
 

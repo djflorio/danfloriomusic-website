@@ -40,8 +40,10 @@ class PlayerContainer extends React.Component {
   render() {
     return (
       <Player
+        playing={this.props.playing}
         playerOpen={this.props.playerOpen}
         playAudio={this.props.playAudio}
+        pauseAudio={this.props.pauseAudio}
         playPercent={this.props.playPercent}
       />
     );
@@ -50,6 +52,7 @@ class PlayerContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    playing: state.player.playing,
     player: state.player.player,
     playerOpen: state.player.playerOpen,
     playPercent: state.player.playPercent
@@ -63,6 +66,9 @@ function mapDispatchToProps(dispatch) {
     },
     playAudio: () => {
       dispatch(actions.playAudio());
+    },
+    pauseAudio: () => {
+      dispatch(actions.pauseAudio());
     }
   }
 }
