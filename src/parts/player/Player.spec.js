@@ -11,18 +11,16 @@ describe('Player', () => {
     playing: false,
     playPercent: 0,
     currentTime: 0,
-    playerOpen: false
-  }
-
-  const currentTimeTest = {
-    ...defaultState, 
-    currentTime: 5
+    playerOpen: false,
+    playerLoaded: false
   }
 
   const loadTest = {
     ...defaultState,
     player: player,
-    playerOpen: true
+    playerOpen: true,
+    playerLoaded: true,
+    playing: true
   }
 
   it('should create action to play audio', () => {
@@ -49,19 +47,6 @@ describe('Player', () => {
         "adaywiser/comingmyway"
     ))).toEqual(
       loadTest
-    );
-  });
-
-  it('should create action to change current time', () => {
-    expect(actions.updateCurrentTime(1)).toEqual({
-      type: actions.UPDATE_CURRENT_TIME,
-      time: 1
-    });
-  });
-
-  it('should update current time', () => {
-    expect(reducer(undefined, actions.updateCurrentTime(5))).toEqual(
-      currentTimeTest
     );
   });
 
