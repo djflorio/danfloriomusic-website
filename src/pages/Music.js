@@ -118,6 +118,10 @@ class Music extends React.Component {
               className="music__album-img"
               src={require('./img/malleability.jpg')}
               alt="Malleability"
+              onClick={() => this.props.loadSong(
+                'malleability/emptylane',
+                this.props.onUpdate
+              )}
             />
           </div>
           <div className="music__album">
