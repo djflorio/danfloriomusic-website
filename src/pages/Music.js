@@ -20,9 +20,6 @@ class Music extends React.Component {
     }*/
 
     this.frameLooper = this.frameLooper.bind(this);
-    this.toggleAudio = this.toggleAudio.bind(this);
-    this.timeUpdate = this.timeUpdate.bind(this);
-    this.onScrub = this.onScrub.bind(this);
   }
 
   componentDidMount() {
@@ -68,34 +65,6 @@ class Music extends React.Component {
         this.state.ctx.fillRect(bar_x, this.state.canvas.height, bar_width, bar_height);
       }
     }
-  }
-
-  timeUpdate() {
-    this.setState({
-      playPercent: 100 * (this.state.currentSong.currentTime / this.state.duration)
-    });
-  }
-
-  toggleAudio() {
-    if (this.state.currentSong.paused) {
-      this.state.currentSong.play();
-      this.setState({ playing: true });
-    } else {
-      this.state.currentSong.pause();
-      this.setState({ playing: false });
-    }
-  }
-
-  onScrub(e) {
-    let left = this.state.timeline.getBoundingClientRect().left;
-    let width = this.state.timeline.getBoundingClientRect().width;
-    let clickPos = e.clientX - left;
-    let percentage = clickPos / width;
-    let newSong = this.state.currentSong;
-    newSong.currentTime = this.state.duration * percentage;
-    this.setState({
-      currentSong: newSong
-    });
   }
 
   render() {

@@ -18,6 +18,7 @@ class PlayerContainer extends React.Component {
     let width = timeline.getBoundingClientRect().width;
     let clickPos = e.clientX - left;
     let percentage = clickPos / width;
+    // TODO: Don't mutate store
     this.props.player.currentTime = this.props.player.duration * percentage;
   }
 
