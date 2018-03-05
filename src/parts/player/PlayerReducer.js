@@ -45,6 +45,12 @@ const player = (state=defaultState, action) => {
         playPercent: action.percentage
       }
     }
+    case actions.UPDATE_TIME: {
+      state.player.currentTime = action.time;
+      return {
+        ...state
+      }
+    }
     default: return state;
   }
 }

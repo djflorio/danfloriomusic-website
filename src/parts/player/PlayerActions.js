@@ -2,9 +2,7 @@ export const PLAY_AUDIO = "PLAY_AUDIO";
 export const PAUSE_AUDIO = "PAUSE_AUDIO";
 export const LOAD_SONG = "LOAD_SONG";
 export const UPDATE_PERCENTAGE = "UPDATE_PERCENTAGE";
-export const UPDATE_CURRENT_TIME = "UPDATE_CURRENT_TIME";
-
-
+export const UPDATE_TIME = "UPDATE_TIME";
 
 export const playAudio = () => ({
   type: PLAY_AUDIO
@@ -30,4 +28,9 @@ export const loadSong = (song, onUpdate) => {
 export const updatePercentage = (percentage) => ({
   type: UPDATE_PERCENTAGE,
   percentage: percentage
+});
+
+export const updateTime = (time) => ({
+  type: UPDATE_TIME,
+  time: time
 });

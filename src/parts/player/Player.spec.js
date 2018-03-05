@@ -6,6 +6,9 @@ describe('Player', () => {
   const player = new Audio();
   player.src = require('./audio/adaywiser/comingmyway.mp3');
 
+  const playerTimeUpdate = { ...player }
+  playerTimeUpdate.currentTime = 5;
+
   const defaultState = {
     player: {},
     playing: false,
@@ -48,6 +51,20 @@ describe('Player', () => {
     ))).toEqual(
       loadTest
     );
+  });
+
+  it('should create action to update time', () => {
+    expect(actions.updateTime(5)).toEqual({
+      type: actions.UPDATE_TIME,
+      time: 5
+    });
+  });
+
+  it('should update time with updateTime', () => {
+    expect(reducer(loadTest, actions.updateTime(5))).toEqual({
+      ...loadTest,
+      player: player
+    });
   });
 
   it('should return default state with unexpected action', () => {

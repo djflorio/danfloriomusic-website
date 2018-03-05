@@ -18,8 +18,8 @@ class PlayerContainer extends React.Component {
     let width = timeline.getBoundingClientRect().width;
     let clickPos = e.clientX - left;
     let percentage = clickPos / width;
-    // TODO: Don't mutate store
-    this.props.player.currentTime = this.props.player.duration * percentage;
+
+    this.props.updateTime(this.props.player.duration * percentage);
   }
 
   render() {
@@ -55,6 +55,9 @@ function mapDispatchToProps(dispatch) {
     },
     pauseAudio: () => {
       dispatch(actions.pauseAudio());
+    },
+    updateTime: (time) => {
+      dispatch(actions.updateTime(time));
     }
   }
 }
