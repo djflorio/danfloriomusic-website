@@ -6,21 +6,11 @@ import Player from './Player';
 
 class PlayerContainer extends React.Component {
 
-  constructor(props) {
+  /*constructor(props) {
     super(props);
 
     this.timeUpdate = this.timeUpdate.bind(this);
-    this.props.loadSong('adaywiser/comingmyway', this.timeUpdate);
-  }
-
-  render() {
-    return (
-      <Player
-        playing={this.props.playing}
-        playPercent={this.props.playPercent}
-        togglePlay={() => this.props.togglePlay(this.props.currentSong)}
-      />
-    );
+    this.props.initPlayer();
   }
 
   timeUpdate(audio) {
@@ -38,13 +28,48 @@ class PlayerContainer extends React.Component {
     this.setState({
       currentSong: newSong
     });
+  }*/
+
+  constructor(props) {
+    super(props);
+
+    //this.props.loadSong('adaywiser/whitetailedhare');
+    //this.props.playAudio();
   }
 
+  render() {
+    return (
+      <Player
+        playerOpen={this.props.playerOpen}
+        playAudio={this.props.playAudio}
+        playPercent={this.props.playPercent}
+      />
+    );
+  }
 }
 
+function mapStateToProps(state) {
+  return {
+    player: state.player.player,
+    playerOpen: state.player.playerOpen,
+    playPercent: state.player.playPercent
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadSong: (song) => {
+      dispatch(actions.loadSong(song));
+    },
+    playAudio: () => {
+      dispatch(actions.playAudio());
+    }
+  }
+}
+/*
 function mapStateToProps(store) {
   return {
-    currentSong: store.player.currentSong,
+    player: store.player.player,
     playing: store.player.playing,
     playPercent: store.player.playPercent
   }
@@ -52,18 +77,21 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    initPlayer: () => {
+      dispatch(actions.initPlayer());
+    },
     togglePlay: (song) => {
       dispatch(actions.togglePlay(song));
     },
-    loadSong: (song, timeUpdate) => {
-      dispatch(actions.loadSong(song, timeUpdate));
+    loadSong: (player, song, timeUpdate) => {
+      dispatch(actions.loadSong(player, song, timeUpdate));
     },
     updatePercentage: (percentage) => {
       dispatch(actions.updatePercentage(percentage));
     }
   }
 }
-
+*/
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -1,24 +1,38 @@
 import * as actions from './PlayerActions';
 
 const defaultState = {
-  currentSong: {},
+  player: {},
   playing: false,
   playPercent: 0,
-  currentTime: 0
+  currentTime: 0,
+  playerOpen: false
 }
 
 const player = (state=defaultState, action) => {
   switch(action.type) {
-    case actions.TOGGLE_PLAY: {
+    case actions.PLAY_AUDIO: {
+      if (state.player) { state.player.play(); }
       return {
         ...state,
-        playing: action.playing
+        playing: true
+      }
+    }
+    case actions.PAUSE_AUDIO: {
+      if (state.player) { state.player.pause(); }
+      return {
+        ...state,
+        playing: false
       }
     }
     case actions.LOAD_SONG: {
+      /*action.player.addEventListener("timeupdate", () => {
+        let percentage = 100 * (action.player.currentTime / action.player.duration);
+        this.props.updatePercentage(percentage);
+      }, false);*/
       return {
         ...state,
-        currentSong: action.song
+        player: action.player,
+        playerOpen: true
       }
     }
     case actions.UPDATE_PERCENTAGE: {
@@ -38,3 +52,7 @@ const player = (state=defaultState, action) => {
 }
 
 export default player;
+
+
+//player.src = require('./audio/' + song + '.mp3');
+//player.addEventListener("timeupdate", () => timeUpdate(player), false);

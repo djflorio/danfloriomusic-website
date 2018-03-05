@@ -1,9 +1,14 @@
 .player {
+  display: none;
   position: absolute;
   bottom: 0;
   width: 100%;
   background-color: black;
   color: white;
+}
+
+.player--open {
+  display: block;
 }
 
 .player__play {

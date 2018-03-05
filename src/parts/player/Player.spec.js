@@ -3,14 +3,15 @@ import reducer from './PlayerReducer';
 
 describe('Player', () => {
 
-  const audio = new Audio();
-  audio.src = require('./audio/adaywiser/comingmyway.mp3');
+  const player = new Audio();
+  player.src = require('./audio/adaywiser/comingmyway.mp3');
 
   const defaultState = {
-    currentSong: {},
+    player: {},
     playing: false,
     playPercent: 0,
-    currentTime: 0
+    currentTime: 0,
+    playerOpen: false
   }
 
   const currentTimeTest = {
@@ -20,25 +21,33 @@ describe('Player', () => {
 
   const loadTest = {
     ...defaultState,
-    currentSong: audio
+    player: player,
+    playerOpen: true
   }
 
-  it('should toggle play true with togglePlay', () => {
-    expect(actions.togglePlay(audio)).toEqual({
-      type: actions.TOGGLE_PLAY,
-      playing: true
+  it('should create action to play audio', () => {
+    expect(actions.playAudio()).toEqual({
+      type: actions.PLAY_AUDIO
+    });
+  });
+
+  it('should create action to pause audio', () => {
+    expect(actions.pauseAudio()).toEqual({
+      type: actions.PAUSE_AUDIO
     });
   });
 
   it('should create action to load song', () => {
     expect(actions.loadSong("adaywiser/comingmyway")).toEqual({
       type: actions.LOAD_SONG,
-      song: audio
+      player: player
     });
   });
 
   it('should load song with loadSong', () => {
-    expect(reducer(undefined, actions.loadSong("adaywiser/comingmyway"))).toEqual(
+    expect(reducer(undefined, actions.loadSong(
+        "adaywiser/comingmyway"
+    ))).toEqual(
       loadTest
     );
   });

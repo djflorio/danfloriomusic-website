@@ -1,30 +1,29 @@
-export const TOGGLE_PLAY = "TOGGLE_PLAY";
+export const PLAY_AUDIO = "PLAY_AUDIO";
+export const PAUSE_AUDIO = "PAUSE_AUDIO";
 export const LOAD_SONG = "LOAD_SONG";
 export const UPDATE_PERCENTAGE = "UPDATE_PERCENTAGE";
 export const UPDATE_CURRENT_TIME = "UPDATE_CURRENT_TIME";
 
-export const togglePlay = (audio) => {
-  let playing = false;
-  if (audio.paused) {
-    audio.play();
-    playing = true;
-  } else {
-    audio.pause();
-  }
-  
-  return {
-    type: TOGGLE_PLAY,
-    playing: playing
-  }
-};
 
-export const loadSong = (song, timeUpdate) => {
-  const audio = new Audio();
-  audio.src = require('./audio/' + song + '.mp3');
-  audio.addEventListener("timeupdate", () => timeUpdate(audio), false);
+
+export const playAudio = () => ({
+  type: PLAY_AUDIO
+});
+
+export const pauseAudio = () => ({
+  type: PAUSE_AUDIO
+});
+
+export const loadSong = (song, onUpdate) => {
+  const player = new Audio();
+  player.src = require('./audio/' + song + '.mp3');
+  player.addEventListener("timeupdate", () => {
+    const p = 100 * (player.currentTime / player.duration);
+    onUpdate(p);
+  }, false);
   return {
     type: LOAD_SONG,
-    song: audio
+    player: player
   }
 }
 
@@ -37,3 +36,6 @@ export const updateCurrentTime = (time) => ({
   type: UPDATE_CURRENT_TIME,
   time: time
 });
+
+
+//player.addEventListener("timeupdate", () => timeUpdate(player), false);

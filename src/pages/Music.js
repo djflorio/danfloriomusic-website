@@ -1,7 +1,7 @@
 import React from 'react';
-//import { songs } from './songs';
 import './Music.css';
-
+import { connect } from 'react-redux';
+import { loadSong, updatePercentage } from '../parts/player/PlayerActions';
 import PlayerContainer from '../parts/player/PlayerContainer';
 
 class Music extends React.Component {
@@ -107,6 +107,10 @@ class Music extends React.Component {
               className="music__album-img"
               src={require('./img/adaywiser.jpg')}
               alt="A Day Wiser"
+              onClick={() => this.props.loadSong(
+                'adaywiser/whitetailedhare',
+                this.props.onUpdate
+              )}
             />
           </div>
           <div className="music__album">
@@ -131,4 +135,15 @@ class Music extends React.Component {
   }
 }
 
-export default Music;
+function mapDispatchToProps(dispatch) {
+  return {
+    loadSong: (song, onUpdate) => {
+      dispatch(loadSong(song, onUpdate));
+    },
+    onUpdate: (percentage) => {
+      dispatch(updatePercentage(percentage));
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Music);
