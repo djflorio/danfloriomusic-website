@@ -31,11 +31,3 @@ export const updatePercentage = (percentage) => ({
   type: UPDATE_PERCENTAGE,
   percentage: percentage
 });
-
-export const updateCurrentTime = (time) => ({
-  type: UPDATE_CURRENT_TIME,
-  time: time
-});
-
-
-//player.addEventListener("timeupdate", () => timeUpdate(player), false);

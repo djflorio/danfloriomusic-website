@@ -25,10 +25,6 @@ const player = (state=defaultState, action) => {
       }
     }
     case actions.LOAD_SONG: {
-      /*action.player.addEventListener("timeupdate", () => {
-        let percentage = 100 * (action.player.currentTime / action.player.duration);
-        this.props.updatePercentage(percentage);
-      }, false);*/
       return {
         ...state,
         player: action.player,
@@ -39,12 +35,6 @@ const player = (state=defaultState, action) => {
       return {
         ...state,
         playPercent: action.percentage
-      }
-    }
-    case actions.UPDATE_CURRENT_TIME: {
-      return {
-        ...state,
-        currentTime: action.time
       }
     }
     default: return state;
