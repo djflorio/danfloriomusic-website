@@ -2,6 +2,7 @@
   max-width: 900px;
   padding: 30px;
   margin: auto;
+  font-family: 'Mukta Mahee', sans-serif;
 }
 
 .library__grid {
@@ -30,21 +31,27 @@
   margin-top: 20px;
 }
 
+.library__display-info {
+  background-color: rgba(0,0,0,0.5);
+  color: #ccc;
+  padding: 10px;
+}
+
 .library__title {
-  color: #111;
   margin: 0;
   font-size: 30px;
+  line-height: 30px;
 }
 
 .library__release {
-  color: #111;
   margin: 0;
   font-size: 16px;
 }
 
 .library__tracks {
   list-style: none;
-  padding: 0 0 70px 0;
+  padding: 0;
+  margin-top: 3px;
 }
 
 .library__track {
@@ -70,8 +77,8 @@
 .library__link {
   text-decoration: none;
   display: inline-block;
-  color: #111;
-  border: solid 2px #111;
+  color: #ccc;
+  border: solid 2px #ccc;
   padding: 5px 0;
   font-size: 13px;
   text-align: center;
@@ -84,6 +91,6 @@
 }
 
 .library__link:hover {
-  background-color: #111;
-  color: #ccc;
+  background-color: #ccc;
+  color: #111;
 }
