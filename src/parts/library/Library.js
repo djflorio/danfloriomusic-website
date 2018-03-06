@@ -1,21 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { loadSong, updatePercentage } from '../player/PlayerActions';
 import './Library.css';
 
-class Library extends React.Component {
-  render() {
-    return (
-      <div className="library">
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faPlay from '@fortawesome/fontawesome-free-solid/faPlay';
+import faPause from '@fortawesome/fontawesome-free-solid/faPause';
+
+const Library = (props) => {
+  return (
+    <div className="library">
+      <div className="library__grid">
         <div className="library__album">
           <img
             className="library__album-img"
             src={require('./img/adaywiser.jpg')}
             alt="A Day Wiser"
-            onClick={() => this.props.loadSong(
-              'adaywiser/whitetailedhare',
-              this.props.onUpdate
-            )}
+            onClick={() => props.openAlbum('adaywiser')}
           />
         </div>
         <div className="library__album">
@@ -23,9 +22,9 @@ class Library extends React.Component {
             className="library__album-img"
             src={require('./img/malleability.jpg')}
             alt="Malleability"
-            onClick={() => this.props.loadSong(
+            onClick={() => props.loadSong(
               'malleability/emptylane',
-              this.props.onUpdate
+              props.onUpdate
             )}
           />
         </div>
@@ -37,19 +36,34 @@ class Library extends React.Component {
           />
         </div>
       </div>
-    );
-  }
+      { 
+        props.albumOpen &&
+        <div className="library__display">
+          <h1 className="library__title">{props.album.title}</h1>
+          <h2 className="library__release">{props.album.release}</h2>
+          <ul className="library__tracks">
+            {
+              props.album.tracks.map(track => {
+                return (
+                  <li
+                    key={track.title}
+                    className="library__track"
+                    onClick={() => props.loadSong(track.file, props.onUpdate)}
+                  >
+                    <FontAwesomeIcon
+                      className="library__play"
+                      icon={ props.currentSong === track.file && props.playing ? faPause : faPlay}
+                    />
+                    {track.title}
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  );
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    loadSong: (song, onUpdate) => {
-      dispatch(loadSong(song, onUpdate));
-    },
-    onUpdate: (percentage) => {
-      dispatch(updatePercentage(percentage));
-    }
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Library);
+export default Library;

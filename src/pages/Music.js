@@ -1,7 +1,7 @@
 import React from 'react';
 import './Music.css';
 
-import Library from '../parts/library/Library';
+import Library from '../parts/library/LibraryContainer';
 
 const Music = () => {
   return (

@@ -15,7 +15,8 @@ describe('Player', () => {
     playPercent: 0,
     currentTime: 0,
     playerOpen: false,
-    playerLoaded: false
+    playerLoaded: false,
+    currentSong: null
   }
 
   const loadTest = {

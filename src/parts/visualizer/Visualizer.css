@@ -1,5 +1,5 @@
 .visualizer {
-  position: absolute;
+  position: fixed;
   display: inline-block;
   bottom: 58px;
   z-index: -1;

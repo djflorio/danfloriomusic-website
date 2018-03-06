@@ -6,7 +6,8 @@ const defaultState = {
   playPercent: 0,
   currentTime: 0,
   playerLoaded: false,
-  playerOpen: false
+  playerOpen: false,
+  currentSong: null
 }
 
 const player = (state=defaultState, action) => {
@@ -37,7 +38,8 @@ const player = (state=defaultState, action) => {
         ...state,
         playerOpen: true,
         playerLoaded: true,
-        playing: true
+        playing: true,
+        currentSong: action.data.song
       }
     }
     case actions.UPDATE_PERCENTAGE: {

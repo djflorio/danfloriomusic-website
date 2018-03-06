@@ -1,13 +1,32 @@
 .library {
+  max-width: 900px;
+  padding: 30px;
+  margin: auto;
+}
+
+.library__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 30px;
   grid-gap: 30px;
-  max-width: 900px;
-  margin: auto;
 }
 
 .library__album-img {
   width: 100%;
   box-shadow: 0 0 4px #333;
+}
+
+.library__tracks {
+  list-style: none;
+  padding: 0;
+}
+
+.library__track {
+  background-color: rgba(0,0,0,0.5);
+  color: #ccc;
+  padding: 10px;
+  margin-bottom: 3px;
+}
+
+.library__play {
+  margin-right: 10px;
 }
