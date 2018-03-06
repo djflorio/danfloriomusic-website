@@ -34,14 +34,14 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    playPauseLoad: (song, onUpdate, playing, currentSong) => {
-      if (playing && currentSong === song) {
+    playPauseLoad: (title, album, onUpdate, playing, currentSong) => {
+      if (playing && currentSong.title === title) {
         dispatch(pauseAudio());
       }
-      else if (!playing && currentSong === song) {
+      else if (!playing && currentSong.title === title) {
         dispatch(playAudio());
       } else {
-        dispatch(loadSong(song, onUpdate));
+        dispatch(loadSong(album, title, onUpdate));
       } 
     },
     onUpdate: (percentage) => {

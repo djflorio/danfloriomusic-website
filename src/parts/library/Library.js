@@ -69,7 +69,8 @@ const Library = (props) => {
                     className="library__track"
                     onClick={() => {
                       props.playPauseLoad(
-                        track.file,
+                        track.title,
+                        props.album.title,
                         props.onUpdate,
                         props.playing,
                         props.currentSong
@@ -78,7 +79,7 @@ const Library = (props) => {
                   >
                     <FontAwesomeIcon
                       className="library__play"
-                      icon={ props.currentSong === track.file && props.playing ? faPause : faPlay}
+                      icon={ props.currentSong.title === track.file && props.playing ? faPause : faPlay}
                     />
                     {track.title}
                   </li>

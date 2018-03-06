@@ -7,7 +7,7 @@ const defaultState = {
   currentTime: 0,
   playerLoaded: false,
   playerOpen: false,
-  currentSong: null
+  currentSong: {}
 }
 
 const player = (state=defaultState, action) => {
@@ -28,7 +28,7 @@ const player = (state=defaultState, action) => {
     }
     case actions.LOAD_SONG: {
       state.player.pause();
-      state.player.src = require('./audio/' + action.data.song + '.mp3');
+      state.player.src = require('./audio/' + action.data.file + '.mp3');
       state.player.addEventListener("timeupdate", () => {
         const p = 100 * (state.player.currentTime / state.player.duration);
         action.data.onUpdate(p);
@@ -39,7 +39,11 @@ const player = (state=defaultState, action) => {
         playerOpen: true,
         playerLoaded: true,
         playing: true,
-        currentSong: action.data.song
+        currentSong: {
+          album: action.data.album,
+          title: action.data.title,
+          file: action.data.file
+        }
       }
     }
     case actions.UPDATE_PERCENTAGE: {

@@ -16,7 +16,7 @@ describe('Player', () => {
     currentTime: 0,
     playerOpen: false,
     playerLoaded: false,
-    currentSong: null
+    currentSong: {}
   }
 
   const loadTest = {
@@ -40,17 +40,39 @@ describe('Player', () => {
       type: actions.PAUSE_AUDIO
     });
   });
-/*
+
   it('should create action to load song', () => {
     expect(actions.loadSong(
-      "adaywiser/comingmyway",
+      "A Day Wiser",
+      "Coming My Way",
       testFunction
     )).toEqual({
       type: actions.LOAD_SONG,
-      data: { song: "adaywiser/comingmyway", onUpdate: testFunction }
+      data: { 
+        album: "A Day Wiser",
+        title: "Coming My Way",
+        file: "adaywiser/comingmyway",
+        onUpdate: testFunction
+      }
     });
   });
 
+  it('should create action to load song with &', () => {
+    expect(actions.loadSong(
+      "Big Thoughts in a Small Place",
+      "Jessamine & Park",
+      testFunction
+    )).toEqual({
+      type: actions.LOAD_SONG,
+      data: { 
+        album: "Big Thoughts in a Small Place",
+        title: "Jessamine & Park",
+        file: "bigthoughtsinasmallplace/jessamineandpark",
+        onUpdate: testFunction
+      }
+    });
+  });
+/*
   it('should load song with loadSong', () => {
     expect(reducer(undefined, actions.loadSong(
         "adaywiser/comingmyway"

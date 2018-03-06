@@ -12,10 +12,15 @@ export const pauseAudio = () => ({
   type: PAUSE_AUDIO
 });
 
-export const loadSong = (song, onUpdate) => {
+export const loadSong = (album, title, onUpdate) => {
+
+  const albumFile = album.replace(/\s/g, '').replace(/&/g, 'and').toLowerCase();
+  const titleFile = title.replace(/\s/g, '').replace(/&/g, 'and').toLowerCase();
+  const file = albumFile + '/' + titleFile;
+
   return {
     type: LOAD_SONG,
-    data: { song, onUpdate }
+    data: { album, title, file, onUpdate }
   }
 }
 
