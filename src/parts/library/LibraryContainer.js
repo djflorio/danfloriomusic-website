@@ -10,7 +10,6 @@ class LibraryComponent extends React.Component {
   render() {
     return (
       <Library
-        loadSong = {this.props.loadSong}
         onUpdate = {this.props.onUpdate}
         openAlbum = {this.props.openAlbum}
         closeAlbum = {this.props.closeAlbum}
@@ -18,8 +17,7 @@ class LibraryComponent extends React.Component {
         album = {this.props.album}
         currentSong = {this.props.currentSong}
         playing = {this.props.playing}
-        playAudio = {this.props.playAudio}
-        pauseAudio = {this.props.pauseAudio}
+        playPauseLoad = {this.props.playPauseLoad}
       />
     );
   }
@@ -36,14 +34,15 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadSong: (song, onUpdate) => {
-      dispatch(loadSong(song, onUpdate));
-    },
-    playAudio: () => {
-      dispatch(playAudio());
-    },
-    pauseAudio: () => {
-      dispatch(pauseAudio());
+    playPauseLoad: (song, onUpdate, playing, currentSong) => {
+      if (playing && currentSong === song) {
+        dispatch(pauseAudio());
+      }
+      else if (!playing && currentSong === song) {
+        dispatch(playAudio());
+      } else {
+        dispatch(loadSong(song, onUpdate));
+      } 
     },
     onUpdate: (percentage) => {
       dispatch(updatePercentage(percentage));

@@ -49,15 +49,13 @@ const Library = (props) => {
                     key={track.title}
                     className="library__track"
                     onClick={() => {
-                      if (props.playing && props.currentSong === track.file) {
-                        props.pauseAudio();
-                      }
-                      else if (!props.playing && props.currentSong === track.file) {
-                        props.playAudio();
-                      } else {
-                        props.loadSong(track.file, props.onUpdate)
-                      }   
-                    }}
+                      props.playPauseLoad(
+                        track.file,
+                        props.onUpdate,
+                        props.playing,
+                        props.currentSong
+                      )}
+                    }
                   >
                     <FontAwesomeIcon
                       className="library__play"
