@@ -31,6 +31,7 @@ class PlayerContainer extends React.Component {
         pauseAudio={this.props.pauseAudio}
         playPercent={this.props.playPercent}
         onScrub={this.onScrub}
+        currentSong={this.props.currentSong}
       />
     );
   }
@@ -41,15 +42,13 @@ function mapStateToProps(state) {
     playing: state.player.playing,
     player: state.player.player,
     playerOpen: state.player.playerOpen,
-    playPercent: state.player.playPercent
+    playPercent: state.player.playPercent,
+    currentSong: state.player.currentSong
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadSong: (song) => {
-      dispatch(actions.loadSong(song));
-    },
     playAudio: () => {
       dispatch(actions.playAudio());
     },

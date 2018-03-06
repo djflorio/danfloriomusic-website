@@ -7,9 +7,10 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faPlay from '@fortawesome/fontawesome-free-solid/faPlay';
 import faPause from '@fortawesome/fontawesome-free-solid/faPause';
 
-const Player = ({playing, playerOpen, playAudio, pauseAudio, playPercent, onScrub}) => {
+const Player = ({playing, playerOpen, playAudio, pauseAudio, playPercent, onScrub, currentSong}) => {
   return (
     <div className={classnames("player", {"player--open": playerOpen})}>
+      <span className="player__title">{currentSong.title}&nbsp;-&nbsp;{currentSong.album}</span>
       <FontAwesomeIcon
         className="player__play"
         icon={playing ? faPause : faPlay}
@@ -32,7 +33,8 @@ Player.propTypes = {
   playAudio: PropTypes.func.isRequired,
   pauseAudio: PropTypes.func.isRequired,
   playPercent: PropTypes.number.isRequired,
-  onScrub: PropTypes.func.isRequired
+  onScrub: PropTypes.func.isRequired,
+  currentSong: PropTypes.object.isRequired
 }
 
 export default Player;

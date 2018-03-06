@@ -1,7 +1,7 @@
 .visualizer {
   position: fixed;
   display: inline-block;
-  bottom: 58px;
+  bottom: 70px;
   z-index: -1;
   opacity: 0.35;
   width: 100%;

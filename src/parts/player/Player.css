@@ -5,14 +5,26 @@
   width: 100%;
   background-color: black;
   color: white;
+  height: 70px;
 }
 
 .player--open {
   display: block;
 }
 
+.player__title {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-family: 'Mukta Mahee', sans-serif;
+  font-size: 13px;
+  line-height: 13px;
+}
+
 .player__play {
-  padding: 20px;
+  position: absolute;
+  top: 32px;
+  left: 20px;
   cursor: pointer;
 }
 
@@ -24,9 +36,9 @@
   position: absolute;
   left: 50px;
   right: 20px;
-  top: 20px;
+  top: 30px;
   bottom: 20px;
-  background-color: white;
+  background-color: rgb(102, 104, 100);
 }
 
 .player__progress {
@@ -34,5 +46,5 @@
   left: 0;
   top: 0;
   bottom: 0;
-  background-color: #bbb;
+  background-color: rgb(139, 184, 130);
 }
