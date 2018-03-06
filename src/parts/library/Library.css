@@ -14,6 +14,16 @@
   width: 100%;
   box-shadow: 0 0 4px #333;
   cursor: pointer;
+  transition: 0.3s;
+  -o-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+}
+
+.library__album-img--open,
+.library__album-img:hover {
+  width: 106%;
+  margin-left: -3%;
 }
 
 .library__display {

@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import './Library.css';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -11,7 +12,10 @@ const Library = (props) => {
       <div className="library__grid">
         <div className="library__album">
           <img
-            className="library__album-img"
+            className={classnames(
+              "library__album-img",
+              {"library__album-img--open": props.album.title === "A Day Wiser"}
+            )}
             src={require('./img/adaywiser.jpg')}
             alt="A Day Wiser"
             onClick={() => props.openAlbum('adaywiser')}
@@ -19,7 +23,10 @@ const Library = (props) => {
         </div>
         <div className="library__album">
           <img
-            className="library__album-img"
+            className={classnames(
+              "library__album-img",
+              {"library__album-img--open": props.album.title === "Malleability"}
+            )}
             src={require('./img/malleability.jpg')}
             alt="Malleability"
             onClick={() => props.loadSong(
@@ -30,7 +37,10 @@ const Library = (props) => {
         </div>
         <div className="library__album">
           <img
-            className="library__album-img"
+            className={classnames(
+              "library__album-img",
+              {"library__album-img--open": props.album.title === "Big Thoughts in a Small Place"}
+            )}
             src={require('./img/bigthoughts.jpg')}
             alt="Big Thoughts in a Small Place"
           />
