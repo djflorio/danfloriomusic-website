@@ -29,10 +29,7 @@ const Library = (props) => {
             )}
             src={require('./img/malleability.jpg')}
             alt="Malleability"
-            onClick={() => props.loadSong(
-              'malleability/emptylane',
-              props.onUpdate
-            )}
+            onClick={() => props.openAlbum('malleability')}
           />
         </div>
         <div className="library__album">
@@ -43,6 +40,7 @@ const Library = (props) => {
             )}
             src={require('./img/bigthoughts.jpg')}
             alt="Big Thoughts in a Small Place"
+            onClick={() => props.openAlbum('bigthoughts')}
           />
         </div>
       </div>
