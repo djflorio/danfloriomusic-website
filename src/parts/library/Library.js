@@ -41,6 +41,15 @@ const Library = (props) => {
         <div className="library__display">
           <h1 className="library__title">{props.album.title}</h1>
           <h2 className="library__release">{props.album.release}</h2>
+          {
+            props.album.links.map(link => {
+              return (
+                <a key={link.link} className="library__link" href={link.link} target="_blank">
+                  {link.name}
+                </a>
+              )
+            })
+          }
           <ul className="library__tracks">
             {
               props.album.tracks.map(track => {

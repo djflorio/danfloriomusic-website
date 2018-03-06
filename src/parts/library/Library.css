@@ -13,6 +13,23 @@
 .library__album-img {
   width: 100%;
   box-shadow: 0 0 4px #333;
+  cursor: pointer;
+}
+
+.library__display {
+  margin-top: 20px;
+}
+
+.library__title {
+  color: #111;
+  margin: 0;
+  font-size: 30px;
+}
+
+.library__release {
+  color: #111;
+  margin: 0;
+  font-size: 16px;
 }
 
 .library__tracks {
@@ -25,8 +42,38 @@
   color: #ccc;
   padding: 10px;
   margin-bottom: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+  -o-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+}
+
+.library__track:hover {
+  background-color: #111;
 }
 
 .library__play {
   margin-right: 10px;
+}
+
+.library__link {
+  text-decoration: none;
+  display: inline-block;
+  color: #111;
+  border: solid 2px #111;
+  padding: 5px 0;
+  font-size: 13px;
+  text-align: center;
+  width: 80px;
+  margin: 10px 3px 0 0;
+  transition: 0.3s;
+  -o-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+}
+
+.library__link:hover {
+  background-color: #111;
+  color: #ccc;
 }
