@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loadSong, updatePercentage } from '../player/PlayerActions';
+import { loadSong, updatePercentage, playAudio, pauseAudio } from '../player/PlayerActions';
 import { openAlbum, closeAlbum } from './LibraryActions';
 import './Library.css';
 
@@ -18,6 +18,8 @@ class LibraryComponent extends React.Component {
         album = {this.props.album}
         currentSong = {this.props.currentSong}
         playing = {this.props.playing}
+        playAudio = {this.props.playAudio}
+        pauseAudio = {this.props.pauseAudio}
       />
     );
   }
@@ -36,6 +38,12 @@ function mapDispatchToProps(dispatch) {
   return {
     loadSong: (song, onUpdate) => {
       dispatch(loadSong(song, onUpdate));
+    },
+    playAudio: () => {
+      dispatch(playAudio());
+    },
+    pauseAudio: () => {
+      dispatch(pauseAudio());
     },
     onUpdate: (percentage) => {
       dispatch(updatePercentage(percentage));
