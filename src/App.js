@@ -9,6 +9,7 @@ import Visualizer from './parts/visualizer/Visualizer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Music from './pages/Music';
+import Videos from './pages/Videos';
 
 class App extends React.Component {
   
@@ -22,6 +23,7 @@ class App extends React.Component {
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/music" component={Music} />
+        <Route path="/videos" component={Videos} />
         <Visualizer />
         <Player />
       </div>

@@ -6,3 +6,9 @@
   min-height: 100%;
   z-index: -1;
 }
+
+.app__page-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}

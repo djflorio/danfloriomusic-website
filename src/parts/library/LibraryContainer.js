@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadSong, updatePercentage, playAudio, pauseAudio } from '../player/PlayerActions';
 import { openAlbum, closeAlbum } from './LibraryActions';
-import './Library.css';
 
 import Library from './Library';
 
