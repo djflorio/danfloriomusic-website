@@ -72,6 +72,24 @@ describe('Player', () => {
       }
     });
   });
+
+  it('should create action to close player', () => {
+    expect(actions.closePlayer()).toEqual({
+      type: actions.CLOSE_PLAYER
+    });
+  });
+
+  it('should close player with closePlayer', () => {
+    expect(reducer(loadTest, actions.closePlayer())).toEqual({
+      player: new Audio(),
+      playing: false,
+      playPercent: 0,
+      currentTime: 0,
+      playerOpen: false,
+      playerLoaded: false,
+      currentSong: {}
+    })
+  });
 /*
   it('should load song with loadSong', () => {
     expect(reducer(undefined, actions.loadSong(

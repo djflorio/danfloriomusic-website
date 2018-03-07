@@ -32,6 +32,7 @@ class PlayerContainer extends React.Component {
         playPercent={this.props.playPercent}
         onScrub={this.onScrub}
         currentSong={this.props.currentSong}
+        closePlayer={this.props.closePlayer}
       />
     );
   }
@@ -57,6 +58,9 @@ function mapDispatchToProps(dispatch) {
     },
     updateTime: (time) => {
       dispatch(actions.updateTime(time));
+    },
+    closePlayer: () => {
+      dispatch(actions.closePlayer());
     }
   }
 }

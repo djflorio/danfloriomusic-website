@@ -9,6 +9,6 @@
 
 .app__page-container {
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto 70px auto;
   padding: 30px;
 }

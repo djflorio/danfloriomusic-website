@@ -3,6 +3,7 @@ export const PAUSE_AUDIO = "PAUSE_AUDIO";
 export const LOAD_SONG = "LOAD_SONG";
 export const UPDATE_PERCENTAGE = "UPDATE_PERCENTAGE";
 export const UPDATE_TIME = "UPDATE_TIME";
+export const CLOSE_PLAYER = "CLOSE_PLAYER";
 
 export const playAudio = () => ({
   type: PLAY_AUDIO
@@ -23,6 +24,10 @@ export const loadSong = (album, title, onUpdate) => {
     data: { album, title, file, onUpdate }
   }
 }
+
+export const closePlayer = () => ({
+  type: CLOSE_PLAYER
+});
 
 export const updatePercentage = (percentage) => ({
   type: UPDATE_PERCENTAGE,

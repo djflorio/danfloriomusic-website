@@ -46,6 +46,11 @@ const player = (state=defaultState, action) => {
         }
       }
     }
+    case actions.CLOSE_PLAYER: {
+      state.player.pause();
+      state.player.remove();
+      return defaultState;
+    }
     case actions.UPDATE_PERCENTAGE: {
       return {
         ...state,

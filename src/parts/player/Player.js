@@ -6,23 +6,31 @@ import classnames from 'classnames';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faPlay from '@fortawesome/fontawesome-free-solid/faPlay';
 import faPause from '@fortawesome/fontawesome-free-solid/faPause';
+import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 
-const Player = ({playing, playerOpen, playAudio, pauseAudio, playPercent, onScrub, currentSong}) => {
+const Player = (props) => {
   return (
-    <div className={classnames("player", {"player--open": playerOpen})}>
-      <span className="player__title">{currentSong.title}&nbsp;-&nbsp;{currentSong.album}</span>
+    <div className={classnames("player", {"player--open": props.playerOpen})}>
+      <span className="player__title">
+        {props.currentSong.title}&nbsp;-&nbsp;{props.currentSong.album}
+      </span>
       <FontAwesomeIcon
         className="player__play"
-        icon={playing ? faPause : faPlay}
-        onClick={playing ? pauseAudio : playAudio}
+        icon={props.playing ? faPause : faPlay}
+        onClick={props.playing ? props.pauseAudio : props.playAudio}
       />
-      <div className="player__timeline" onClick={onScrub}>
+      <div className="player__timeline" onClick={props.onScrub}>
         <div
           className="player__progress"
-          style={{ width: playPercent + '%' }}
+          style={{ width: props.playPercent + '%' }}
         >
         </div>
       </div>
+      <FontAwesomeIcon
+        className="player__close"
+        icon={faTimes}
+        onClick={props.closePlayer}
+      />
     </div>
   );
 }
@@ -34,7 +42,8 @@ Player.propTypes = {
   pauseAudio: PropTypes.func.isRequired,
   playPercent: PropTypes.number.isRequired,
   onScrub: PropTypes.func.isRequired,
-  currentSong: PropTypes.object.isRequired
+  currentSong: PropTypes.object.isRequired,
+  closePlayer: PropTypes.func.isRequired
 }
 
 export default Player;
