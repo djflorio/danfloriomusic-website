@@ -1,4 +1,4 @@
-export const covers = [
+export const videos = [
   {
     title: "The Fool on the Hill",
     vId: "6sWsQXhEa1k"
@@ -22,10 +22,7 @@ export const covers = [
   {
     title: "June Hymn",
     vId: "7lEthCO-jbM"
-  }
-];
-
-export const originals = [
+  },
   {
     title: "Materialized",
     vId: "8e9ACQ9IeiI"

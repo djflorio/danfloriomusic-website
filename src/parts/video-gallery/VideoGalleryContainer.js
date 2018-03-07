@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 import * as actions from './VideoGalleryActions';
 import { closePlayer } from '../player/PlayerActions';
 
-import { covers, originals } from './videos';
+import { videos } from './videos';
 
 class VideoGalleryContainer extends React.Component {
   render() {
     return (
       <VideoGallery
-        covers={covers}
-        originals={originals}
+        videos={videos}
         openVideo={this.props.openVideo}
         closeVideo={this.props.closeVideo}
         currentVideo={this.props.currentVideo}
