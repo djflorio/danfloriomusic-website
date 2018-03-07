@@ -28,3 +28,8 @@
   border: solid 7px #1B1B0F;
   box-sizing: border-box;
 }
+
+.home__music {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 122px;
+}

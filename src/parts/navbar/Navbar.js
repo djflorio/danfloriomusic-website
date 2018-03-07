@@ -22,7 +22,7 @@ const Navbar = () => {
         </Link>
         <Link
           activeClassName='navbar__link--active'
-          to="videos"
+          to="/videos"
           className="navbar__link"
         >
           Look
