@@ -1,22 +1,19 @@
 .about {
-  color: rgb(242, 243, 242);
+  color: #ccc;
 }
 
-.about__text {
+.about__blurb {
   font-family: 'Mukta Mahee', sans-serif;
   font-size: 25px;
   line-height: 28px;
-}
-
-.about__instrument-text {
-  font-family: 'Mukta Mahee', sans-serif;
-  font-size: 20px;
-  line-height: 22px;
+  text-align: justify;
+  margin: 0;
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px;
 }
 
 .about__link {
-  text-decoration: none;
-  color: #a5680c;
+  color: #9fc793;
   transition: 0.3s;
   -o-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -24,10 +21,5 @@
 }
 
 .about__link:hover {
-  text-shadow: 0 0 4px #a5680c;
-}
-
-.about__instrument-img {
-  width: 150px;
-  margin-right: 10px;
+  text-shadow: 0 0 4px #91da93;
 }
