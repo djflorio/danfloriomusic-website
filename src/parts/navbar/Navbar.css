@@ -10,11 +10,11 @@
 .navbar__link {
   font-family: 'Mukta Mahee', sans-serif;
   text-transform: uppercase;
-  margin: 0 35px;
+  margin: 0 20px;
   opacity: 0.8;
   color: #1B1B0F;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 30px;
   transition: 0.3s;
   -o-transition: 0.3s;
   -moz-transition: 0.3s;
