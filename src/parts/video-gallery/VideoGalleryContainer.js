@@ -2,6 +2,7 @@ import React from 'react';
 import VideoGallery from './VideoGallery';
 import { connect } from 'react-redux';
 import * as actions from './VideoGalleryActions';
+import { closePlayer } from '../player/PlayerActions';
 
 import { covers, originals } from './videos';
 
@@ -30,6 +31,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     openVideo: (vId) => {
+      dispatch(closePlayer());
       dispatch(actions.openVideo(vId));
     },
     closeVideo: () => {

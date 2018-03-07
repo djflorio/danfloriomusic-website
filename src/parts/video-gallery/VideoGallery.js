@@ -65,7 +65,7 @@ VideoGallery.propTypes = {
   openVideo: PropTypes.func.isRequired,
   closeVideo: PropTypes.func.isRequired,
   modalOpen: PropTypes.bool,
-  currentVideo: PropTypes.string
+  currentVideo: PropTypes.string,
 }
 
 export default VideoGallery;
