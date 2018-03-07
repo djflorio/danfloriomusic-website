@@ -3,6 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 import './About.css';
 
 const About = () => {
+
   return (
     <div className="about app__page-container">
       <p className="about__blurb">
@@ -24,6 +25,20 @@ const About = () => {
         thinks your time is better spent listening to it.
         It will be over before you know it.
       </p>
+      <div className="about__social">
+        <a className="about__social-link" href="mailto:dflo@danflorio.com">
+          Email
+        </a>
+        <a className="about__social-link" href="https://www.facebook.com/danfloriomusic/" target="_blank">
+          Facebook
+        </a>
+        <a className="about__social-link" href="https://twitter.com/dflosounds" target="_blank">
+          Twitter
+        </a>
+        <a className="about__social-link" href="http://www.danflorio.com" target="_blank">
+          As a Coder
+        </a>
+      </div>
     </div>
   );
 }
