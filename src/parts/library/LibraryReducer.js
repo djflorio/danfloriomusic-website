@@ -1,8 +1,9 @@
 import * as actions from './LibraryActions';
+import { adaywiser } from './tracks';
 
 const defaultState = {
-  albumOpen: false,
-  album: {}
+  albumOpen: true,
+  album: adaywiser
 }
 
 const library = (state=defaultState, action) => {

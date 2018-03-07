@@ -3,8 +3,8 @@ import reducer from './LibraryReducer';
 import { adaywiser } from './tracks';
 
 const defaultState = {
-  albumOpen: false,
-  album: {}
+  albumOpen: true,
+  album: adaywiser
 }
 
 describe('Library', () => {
