@@ -16,7 +16,7 @@ const About = () => {
         <a className="about__link" target="_blank" href="http://danflorio.bandcamp.com">
           Bandcamp
         </a>&nbsp;
-        page and can be downloaded for whatever price you feel like playing.
+        page and can be downloaded for whatever price you feel like paying.
         <br /><br />
         His latest EP, <Link to="/music" className="about__link">A Day Wiser</Link>,
         consists of four songs. These four songs
