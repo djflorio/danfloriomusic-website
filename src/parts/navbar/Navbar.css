@@ -26,4 +26,14 @@
   color: rgb(215, 221, 210);
   text-shadow: 0 0 8px rgb(215, 221, 210);
 }
-  
+
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .navbar__link {
+    margin: 0 10px;
+  }
+}

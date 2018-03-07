@@ -92,3 +92,18 @@
   background-color: #ccc;
   color: #111;
 }
+
+@media (max-width: 580px) {
+  .library__grid {
+    grid-gap: 10px;
+  }
+
+  .library__display {
+    margin-top: 10px;
+  }
+
+  .library__title {
+    font-size: 25px;
+    line-height: 25px;
+  }
+}

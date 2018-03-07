@@ -23,3 +23,10 @@
 .about__link:hover {
   text-shadow: 0 0 4px #91da93;
 }
+
+@media (max-width: 400px) {
+  .about__blurb {
+    font-size: 18px;
+    text-align: left;
+  }
+}
