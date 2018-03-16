@@ -3,6 +3,24 @@
   padding: 30px;
 }
 
+.navbar__title-link {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.navbar__title {
+  font-family: 'Mukta Mahee', sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.4;
+  font-size: 35px;
+  line-height: 35px;
+  border: solid 2px black;
+  display: inline-block;
+  padding: 8px 13px;
+}
+
 .navbar__nav {
   display: inline-block;
 }
@@ -10,11 +28,11 @@
 .navbar__link {
   font-family: 'Mukta Mahee', sans-serif;
   text-transform: uppercase;
-  margin: 0 20px;
+  margin: 0 13px;
   opacity: 0.8;
   color: #1B1B0F;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 25px;
   transition: 0.3s;
   -o-transition: 0.3s;
   -moz-transition: 0.3s;

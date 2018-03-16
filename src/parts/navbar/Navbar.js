@@ -5,6 +5,9 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <div className="navbar">
+      <Link to="/" className="navbar__title-link">
+        <h1 className="navbar__title">Dan Florio Music</h1>
+      </Link>
       <nav className="navbar__nav">
         <Link
           activeClassName='navbar__link--active'
